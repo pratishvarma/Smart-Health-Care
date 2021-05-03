@@ -1,0 +1,142 @@
+{% extends 'mainhead.html' %}
+{% block main %}
+<!-- As a heading -->
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 name">SMART HEALTH CARE</span>
+      <form class="d-flex">
+        <a class="btn btn-success" href="{{ url_for('index') }}">Home</a>
+      
+        <a class="btn btn-danger ml-3" href="{{ url_for('parkirson_') }}">Refresh</a>
+      </form>
+    </div>
+  
+</nav>
+<style>
+  .cl {
+    color: {{color}};
+  }
+</style>
+    <div class="container">
+      <div class="text-center">
+        <h1 class="display-4 mt-5" style="font-size: 2rem; color: white;">Check Parkirson Disease</h1>
+      </div>
+    </div>
+    <div class="container">
+      {% if connect ==  5 %}
+      <div style="padding-bottom: 3%" class="card text-center mt-5 animate__animated animate__flipInX animate__slower">
+        <div class="card-header">
+          Results
+        </div>
+        <div class="card-body cl" style="background-color:white;">
+    
+          <!-- Main ML Prediction Display Here -->
+          <p>{{prediction}}</p>
+    
+        </div>
+    
+        <!-- Main ML Prediction Display Ends Here -->
+      </div>
+      {% endif %}
+       <!-- Main Input For Receiving Query to our ML -->
+       <form action="{{ url_for('parkirson')}}" style="padding-bottom: 5%" method="POST" class="animate__animated animate__fadeIn mt-5">
+          
+        <div class="form-group">
+          <label style="color:white">Average vocal fundamental frequency</label>
+          <input type="text" name="MDVP:Fo(Hz)" value="" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label style="color:white">Maximum vocal fundamental frequency</label>
+          <input type="text" name="MDVP:Fhi(Hz)"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">MDVP:Flo(Hz) [Several measures of variation in fundamental frequency]</label>
+          <input type="text" name="MDVP:Flo(Hz)"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">MDVP:Jitter(%) [Several measures of variation in fundamental frequency]</label>
+          <input type="text" name="MDVP:Jitter(%)"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">MDVP:Jitter(Abs) [Several measures of variation in fundamental frequency]</label>
+          <input type="text" name="MDVP:Jitter(Abs)"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">MDVP:RAP [Several measures of variation in fundamental frequency]</label>
+          <input type="text" name="MDVP:RAP"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">MDVP:PPQ [Several measures of variation in fundamental frequency]</label>
+          <input type="text" name="MDVP:PPQ"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Jitter:DDP [Several measures of variation in fundamental frequency]</label>
+          <input type="text" name="Jitter:DDP"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">MDVP:Shimmer [Several measures of variation in amplitude]</label>
+          <input type="text" name="MDVP:Shimmer"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">MDVP:Shimmer(dB) [Several measures of variation in amplitude]</label>
+          <input type="text" name="MDVP:Shimmer(dB)"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Shimmer:APQ3 [Several measures of variation in amplitude]</label>
+          <input type="text" name="Shimmer:APQ3"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Shimmer:APQ5 [Several measures of variation in amplitude]</label>
+          <input type="text" name="Shimmer:APQ5"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">MDVP:APQ [Several measures of variation in amplitude]</label>
+          <input type="text" name="MDVP:APQ"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Shimmer:DDA [Several measures of variation in amplitude]</label>
+          <input type="text" name="Shimmer:DDA"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">NHR - measures of ratio of noise to tonal components in the voice</label>
+          <input type="text" name="NHR"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">HNR - measures of ratio of noise to tonal components in the voice</label>
+          <input type="text" name="HNR"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">RPDE - nonlinear dynamical complexity measures</label>
+          <input type="text" name="RPDE"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">DFA - Signal fractal scaling exponent</label>
+          <input type="text" name="DFA"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">spread1 - nonlinear measures of fundamental frequency variation</label>
+          <input type="text" name="spread1"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">spread2 - nonlinear measures of fundamental frequency variation</label>
+          <input type="text" name="spread2"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">D2 - nonlinear dynamical complexity measures</label>
+          <input type="text" name="D2"  value="" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">PPE - nonlinear measures of fundamental frequency variation</label>
+          <input type="text" name="PPE"  value="" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Predict</button>
+      </form>
+
+    
+    </div>
+    
+
+ 
+{% endblock %}

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+  <title>SmartHealthCare</title>
+
+</head>
+
+<body class="animate__animated animate__fadeIn">
+  <!-- Navbar -->
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 mx-auto name">SMART HEALTH CARE</span>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="text-center">
+      <h1 class="display-4 mt-5" style="font-size: 2rem; color: white;">Predict Various Diseases Using ML</h1>
+      <small class="text-muted" style="color: white !important;">Smart Health Care system (SHC) is developed using RF,
+        and CNN Algorithm for predicting the risk level of disease.
+      </small>
+    </div>
+  </div>
+
+  <!-- Disease Cards -->
+  <div class="container animate__animated animate__fadeInUpBig">
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="padding-bottom: 5%;">
+      <div class="col">
+        <div class="card h-100 text-center" style="width: 18rem;">
+          <img class="card-img-top img-fluid" src="../static/covid.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">COVID-19</h4>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-success" href="{{ url_for('COVID_') }}">Check</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center" style="width: 18rem;">
+          <img class="card-img-top img-fluid" src="../static/maleriya.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Maleriya</h4>
+
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-success" href="{{ url_for('maleria_') }}">Check</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center" style="width: 18rem;">
+          <img class="card-img-top img-fluid" src="../static/hd.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Heart Disease</h4>
+
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-success" href="{{ url_for('Heart_') }}">Check</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center" style="width: 18rem;">
+          <img class="card-img-top img-fluid" src="../static/parkirson.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Parkirson</h4>
+
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-success" href="{{ url_for('parkirson_') }}">Check</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center" style="width: 18rem;">
+          <img class="card-img-top img-fluid" src="../static/diabetes.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Diabetes</h4>
+
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-success" href="{{ url_for('diabetes_') }}">Check</a>
+          </div>
+
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center" style="width: 18rem;">
+          <img class="card-img-top img-fluid" src="../static/ckd.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Chronic Kidney Disease</h4>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-success" href="{{ url_for('Kidney_') }}">Check</a>
+          </div>
+
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 text-center" style="width: 18rem;">
+          <img class="card-img-top img-fluid" src="../static/ld.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Liver Disease</h4>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-success" href="{{ url_for('liver_') }}">Check</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 text-center" style="width: 18rem;">
+          <img class="card-img-top img-fluid" src="../static/pn.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Pneumonia</h4>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-success" href="{{ url_for('pneumonia_') }}">Check</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card h-100 text-center" style="width: 18rem;">
+          <img class="card-img-top img-fluid" src="../static/lung.webp" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Lung Cancer</h4>
+          </div>
+          <div class="card-footer">
+            <a class="btn btn-success" href="{{ url_for('lung_') }}">Check</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- JS -->
+  <script src='https://code.jquery.com/jquery-1.12.4.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+  <script src="../static/script.js"></script>
+</body>
+
+</html>

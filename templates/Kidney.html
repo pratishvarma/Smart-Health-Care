@@ -1,0 +1,156 @@
+{% extends 'mainhead.html' %}
+{% block main %}
+<!-- As a heading -->
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1 name">SMART HEALTH CARE</span>
+      <form class="d-flex">
+        <a class="btn btn-success" href="{{ url_for('index') }}">Home</a>
+      
+        <a class="btn btn-danger ml-3" href="{{ url_for('Kidney_') }}">Refresh</a>
+      </form>
+    </div>
+  
+</nav>
+<style>
+  .cl {
+    color: {{color}};
+  }
+</style>
+    <div class="container">
+      <div class="text-center">
+        <h1 class="display-4 mt-5" style="font-size: 2rem; color: white;">Check Chronic Kidney Disease</h1>
+      </div>
+    </div>
+    <div class="container">
+      {% if connect ==  5 %}
+  <div style="padding-bottom: 3%" class="card text-center mt-5 animate__animated animate__flipInX animate__slower">
+    <div class="card-header">
+      Results
+    </div>
+    <div class="card-body cl" style="background-color:white;">
+
+      <!-- Main ML Prediction Display Here -->
+      <p>{{prediction}}</p>
+
+    </div>
+
+    <!-- Main ML Prediction Display Ends Here -->
+  </div>
+  {% endif %}
+        
+       <!-- Main Input For Receiving Query to our ML -->
+       <form action="{{ url_for('Kidney')}}" style="padding-bottom: 5%" method="POST" class="animate__animated animate__fadeIn mt-5">
+          
+        <div class="form-group">
+          <label style="color:white">Enter your Age</label>
+          <input type="text" name="age" value="{{ age }}" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label style="color:white">Enter your Blood Pressure</label>
+          <input type="text" name="bp"  value="{{ bp }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Specific Gravity</label>
+          <input type="text" name="sg"  value="{{ sg }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Albumin</label>
+          <input type="text" name="al"  value="{{ al }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Sugar</label>
+          <input type="text" name="su"  value="{{ su }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Red Blood Cell</label>
+          <input type="text" name="rbc"  value="{{ rbc }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Pus Cell</label>
+          <input type="text" name="pc"  value="{{ pc }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Pus Cell Clumps</label>
+          <input type="text" name="pcc"  value="{{ pcc }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Bacteria</label>
+          <input type="text" name="ba"  value="{{ ba }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Blood Glucose Random</label>
+          <input type="text" name="bgr"  value="{{ bgr }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Blood Urea</label>
+          <input type="text" name="bu"  value="{{ bu }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Serum Creatinine</label>
+          <input type="text" name="sc"  value="{{ sc }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Sodium</label>
+          <input type="text" name="sod"  value="{{ sod }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Potassium</label>
+          <input type="text" name="pot"  value="{{ pot }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Hemoglobin</label>
+          <input type="text" name="hemo"  value="{{ hemo }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Packed Cell Volume</label>
+          <input type="text" name="pcv"  value="{{ pcv }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your White Blood Cell Count</label>
+          <input type="text" name="wc"  value="{{ wc }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Red Blood Cell Count</label>
+          <input type="text" name="rc"  value="{{ rc }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Hypertension</label>
+          <input type="text" name="htn"  value="{{ htn }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Diabetes Mellitus</label>
+          <input type="text" name="dm"  value="{{ dm }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Coronary Artery Disease</label>
+          <input type="text" name="cad"  value="{{ cad }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Appetite</label>
+          <input type="text" name="appet"  value="{{ appet }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Padal Edema</label>
+          <input type="text" name="pe"  value="{{ pe }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Anemia</label>
+          <input type="text" name="ane"  value="{{ ane }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label style="color:white">Enter your Class</label>
+          <input type="text" name="class"  value="{{ class }}" class="form-control" required>
+        </div>
+
+
+        <button type="submit" class="btn btn-success">Predict</button>
+      </form>
+
+    
+    </div>
+    
+
+ 
+{% endblock %}
