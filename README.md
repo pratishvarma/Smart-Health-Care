@@ -91,16 +91,20 @@ The main goal of this Project is to use ML for disease diagnosis and, thus, the 
 ### 7. Creators :
 
 
-[Madhurika Belsare](https://www.linkedin.com/in/madhurika-belsare-9a144b117/)
-
-[Samiksha Bhange](https://www.linkedin.com/in/samiksha-bhange-2750751a8/)
-
 [Mahesh Dhoran](https://www.linkedin.com/in/maheshdhoran/)
+
+[Pratish Varma](https://www.linkedin.com/in/pratish-varma-a72306197/)
 
 [Raj Sutane](https://www.linkedin.com/in/raj-sutane-4379231ab/)
  
 [Harshal Chambare](https://www.linkedin.com/in/harshal-chambhare-999048209/)
- 
-[Pratish Varma](https://www.linkedin.com/in/pratish-varma-a72306197/)
+
+[Samiksha Bhange](https://www.linkedin.com/in/samiksha-bhange-2750751a8/)
+
+[Madhurika Belsare](https://www.linkedin.com/in/madhurika-belsare-9a144b117/)
+
+
+
+
 
 
