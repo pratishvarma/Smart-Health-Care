@@ -12,7 +12,7 @@
 
 **1. Introduction :**
 
-Smart Health Care is a website that predicts the disease of the user with respect to the symptoms given by the user. The Smart Health Care system has data sets collected from different health related sites. With the help of Smart Health Care the user will be able to know the probability of the disease with the given symptoms. This project will help to predict seven different types of disease such as Liver, Kidney, Heart, Parkinson, Covid-19, Malaria, Diabetes , Pneumonia and Lung Cancer  on a single platform.
+Smart Health Care is a website that predicts the disease of the user with respect to the symptoms given by the user. The Smart Health Care system has data sets collected from different health related sites. With the help of Smart Health Care the user will be able to know the probability of the disease with the given symptoms. This project will help to predict 9 different types of disease such as Liver, Kidney, Heart, Parkinson, Covid-19, Malaria, Diabetes , Pneumonia and Lung Cancer  on a single platform.
 
 **2. Prerequisites :**
 
