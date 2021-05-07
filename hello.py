@@ -47,13 +47,13 @@ def Heart():
         connect=5
 
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have heart disease".format(int(my_prediction[0][0]*100))
+            result="Congrats our model says he is {}% sure you dont have heart disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a heart disease".format(int(my_prediction[0][1]*100))
+            result="Sorry to say but our model says there is {} % chance you have a heart disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="Sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('Heart.html',prediction = result, color=val, connect=connect)
 
@@ -96,13 +96,13 @@ def Kidney():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have kidney disease".format(int(my_prediction[0][0]*100))
+            result="Congrats our model says he is {}% sure you dont have kidney disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a kidney disease".format(int(my_prediction[0][1]*100))
+            result="Sorry to say but our model says there is {} % chance you have a kidney disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="Sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('Kidney.html',prediction = result,color=val,connect=connect)
 
@@ -129,13 +129,13 @@ def diabetes():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have diabetes disease".format(int(my_prediction[0][0]*100))
+            result="Congrats our model says he is {}% sure you dont have diabetes disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a diabetes disease".format(int(my_prediction[0][1]*100))
+            result="Sorry to say but our model says there is {} % chance you have a diabetes disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="Sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('diabetes.html',prediction = result,connect=connect,color=val)
 
@@ -163,13 +163,13 @@ def liver():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have liver disease".format(int(my_prediction[0][0]*100))
+            result="Congrats our model says he is {}% sure you dont have liver disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a liver disease".format(int(my_prediction[0][1]*100))
+            result="Sorry to say but our model says there is {} % chance you have a liver disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="Sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('liver.html',prediction = result,connect=connect,color=val)
 
@@ -210,13 +210,13 @@ def parkirson():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have parkirson disease".format(int(my_prediction[0][0]*100))
+            result="Congrats our model says he is {}% sure you dont have parkirson disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a parkirson disease".format(int(my_prediction[0][1]*100))
+            result="Sorry to say but our model says there is {} % chance you have a parkirson disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="Sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('parkirson.html',prediction = result,connect=connect, color=val)
 
@@ -331,9 +331,9 @@ def lung():
             if os.path.exists(file_path):
                 os.remove(file_path)
             if result == 2:
-                return "you have begining level of cancer"
+                return "You have begining level of cancer"
             elif result == 1:
-                return "sorry but you have maligant level cancer"
+                return "Sorry but you have maligant level cancer"
             else:
                 return "You don't have Lung Cancer , you are Normal"
         else: 
