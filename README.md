@@ -1,6 +1,6 @@
 # **Smart-Health-Care**
 
-**Table of Contents **
+**Table of Contents :**
 
 - Introduction
 - Prerequisites
