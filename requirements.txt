@@ -1,6 +1,7 @@
 ﻿absl-py==0.12.0
 astunparse==1.6.3
 cachetools==4.2.2
+gunicorn==20.0.4
 certifi==2020.12.5
 chardet==4.0.0
 click==7.1.2
