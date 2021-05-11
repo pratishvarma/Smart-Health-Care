@@ -48,7 +48,7 @@ These are the links where you can find the datasets
 
 These is the System Architecture in the way the work flow of program will run.
 
-![](images/SA.png)
+![](images/SA.jpg)
 
 **What is CNN?**
 
