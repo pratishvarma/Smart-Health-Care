@@ -47,13 +47,13 @@ def Heart():
         connect=5
 
         if my_prediction[0][0] > 0.5:
-            result="Congrats our model says he is {}% sure you dont have heart disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have heart disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="Sorry to say but our model says there is {} % chance you have a heart disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a heart disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="Sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('Heart.html',prediction = result, color=val, connect=connect)
 
@@ -96,13 +96,13 @@ def Kidney():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="Congrats our model says he is {}% sure you dont have kidney disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have kidney disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="Sorry to say but our model says there is {} % chance you have a kidney disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a kidney disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="Sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('Kidney.html',prediction = result,color=val,connect=connect)
 
@@ -129,13 +129,13 @@ def diabetes():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="Congrats our model says he is {}% sure you dont have diabetes disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have diabetes disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="Sorry to say but our model says there is {} % chance you have a diabetes disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a diabetes disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="Sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('diabetes.html',prediction = result,connect=connect,color=val)
 
@@ -163,13 +163,13 @@ def liver():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="Congrats our model says he is {}% sure you dont have liver disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have liver disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="Sorry to say but our model says there is {} % chance you have a liver disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a liver disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="Sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('liver.html',prediction = result,connect=connect,color=val)
 
@@ -210,13 +210,13 @@ def parkirson():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="Congrats our model says he is {}% sure you dont have parkirson disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have parkirson disease".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="Sorry to say but our model says there is {} % chance you have a parkirson disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a parkirson disease".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="Sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition"
             val="black"
     return render_template('parkirson.html',prediction = result,connect=connect, color=val)
 
@@ -245,19 +245,29 @@ def COVID():
             basepath = os.path.dirname(__file__)
             file_path = os.path.join(basepath, 'uploads', fname)
             f.save(file_path)
-            classifier = load_model('model/model_covid19.h5')
-            test_image = image.load_img(file_path,target_size = (224, 224))
+            ##loading model
+            classifier = load_model('model/keras_model.h5')
+            test_image = image.load_img(file_path, target_size=(224, 224))
             test_image = image.img_to_array(test_image)
-            test_image = np.expand_dims(test_image,axis = 0)
+            test_image = np.expand_dims(test_image, axis=0)
+            test_image = (test_image.astype(np.float32) / 127.0) - 1
             result = classifier.predict(test_image)
-            if os.path.exists(file_path):
-                os.remove(file_path)
-            if result == 0:
-                return "Sorry to say you have tested COVID-19 Positive"
+            if result[0][0] > 0.7:
+                classifier = load_model('model/model_covid19.h5')
+                test_image2 = image.load_img(file_path, target_size=(224, 224))
+                test_image2 = image.img_to_array(test_image2)
+                test_image2 = np.expand_dims(test_image2, axis=0)
+                result2 = classifier.predict(test_image2)
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+                if result2 == 0:
+                    return "Sorry to say you have tested COVID-19 Positive"
+                else:
+                    return "Hurray you have tested COVID-19 Negative"
             else:
-                return "Hurray you have tested COVID-19 Negative"
-        else: 
-            return "Something went wrong please refresh the page"
+                return "Sorry you uploaded wrong image!!"
+    else:
+        return "Something went wrong please refresh the page"
 
 @app.route('/pneumonia_')
 def pneumonia_():
@@ -284,20 +294,29 @@ def pneumonia():
             basepath = os.path.dirname(__file__)
             file_path = os.path.join(basepath, 'uploads', fname)
             f.save(file_path)
-            classifier = load_model('model/model_pneumonia.h5')
-            test_image = image.load_img(file_path,target_size = (224, 224))
+            ##loading model
+            classifier = load_model('model/keras_model.h5')
+            test_image = image.load_img(file_path, target_size=(224, 224))
             test_image = image.img_to_array(test_image)
-            test_image = np.expand_dims(test_image,axis = 0)
+            test_image = np.expand_dims(test_image, axis=0)
+            test_image = (test_image.astype(np.float32) / 127.0) - 1
             result = classifier.predict(test_image)
-            if os.path.exists(file_path):
-                os.remove(file_path)
-            if result == 1:
-                return "Sorry to say you have Pneumonia"
+            if result[0][0] > 0.7:
+                classifier = load_model('model/model_pneumonia.h5')
+                test_image2 = image.load_img(file_path, target_size=(224, 224))
+                test_image2 = image.img_to_array(test_image2)
+                test_image2 = np.expand_dims(test_image2, axis=0)
+                result2 = classifier.predict(test_image2)
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+                if result2 == 1:
+                    return "Sorry to say you have Pneumonia"
+                else:
+                    return "Congratulations you dont have pneumonia"
             else:
-                return "You don't have Pneumonia"
-        else: 
-            return "Something went wrong please refresh the page"
-
+                return "Sorry you uploaded wrong image!!"
+    else:
+        return "Something went wrong please refresh the page"
 @app.route('/lung_')
 def lung_():
     return render_template('lung.html')
@@ -323,21 +342,29 @@ def lung():
             basepath = os.path.dirname(__file__)
             file_path = os.path.join(basepath, 'uploads', fname)
             f.save(file_path)
-            classifier = load_model('model/model_lung.h5')
-            test_image = image.load_img(file_path,target_size = (224, 224))
+            ##loading model
+            classifier = load_model('model/keras_model.h5')
+            test_image = image.load_img(file_path, target_size=(224, 224))
             test_image = image.img_to_array(test_image)
-            test_image = np.expand_dims(test_image,axis = 0)
-            result = np.argmax(classifier.predict(test_image))
-            if os.path.exists(file_path):
-                os.remove(file_path)
-            if result == 2:
-                return "You have begining level of cancer"
-            elif result == 1:
-                return "Sorry but you have maligant level cancer"
+            test_image = np.expand_dims(test_image, axis=0)
+            test_image = (test_image.astype(np.float32) / 127.0) - 1
+            result = classifier.predict(test_image)
+            if result[0][0] > 0.7:
+                classifier = load_model('model/model_lung.h5')
+                test_image2 = image.load_img(file_path, target_size=(224, 224))
+                test_image2 = image.img_to_array(test_image2)
+                test_image2 = np.expand_dims(test_image2, axis=0)
+                result2 = np.argmax(classifier.predict(test_image2),axis=1)
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+                if result2 == 2:
+                    return " Congratulations You are Normal"
+                else:
+                    return "sorry to say our model says you have maligant level of caner "
             else:
-                return "You don't have Lung Cancer , you are Normal"
-        else: 
-            return "Something went wrong please refresh the page"
+                return "Sorry you uploaded wrong image!!"
+    else:
+        return "Something went wrong please refresh the page"
     
 @app.route('/maleria_')
 def maleria_():
@@ -362,19 +389,29 @@ def maleria():
             basepath = os.path.dirname(__file__)
             file_path = os.path.join(basepath, 'uploads', fname)
             f.save(file_path)
-            classifier = load_model('model/model_maleria.h5')
-            test_image = image.load_img(file_path,target_size = (224, 224))
+            ##loading model
+            classifier = load_model('model/keras_model2.h5')
+            test_image = image.load_img(file_path, target_size=(224, 224))
             test_image = image.img_to_array(test_image)
-            test_image = np.expand_dims(test_image,axis = 0)
+            test_image = np.expand_dims(test_image, axis=0)
+            test_image = (test_image.astype(np.float32) / 127.0) - 1
             result = classifier.predict(test_image)
-            if os.path.exists(file_path):
-                os.remove(file_path)
-            if result == 0:
-                return "Sorry to say you have Maleria"
+            if result[0][0] > 0.7:
+                classifier = load_model('model/model_maleria.h5')
+                test_image2 = image.load_img(file_path, target_size=(224, 224))
+                test_image2 = image.img_to_array(test_image2)
+                test_image2 = np.expand_dims(test_image2, axis=0)
+                result2 = classifier.predict(test_image2)
+                if os.path.exists(file_path):
+                    os.remove(file_path)
+                if result2 == 1:
+                    return " Congratulations You dont have Malaria"
+                else:
+                    return "sorry to say our model is says you have Malaria "
             else:
-                return "You don't have Maleria"
-        else:
-            return "Something went wrong please refresh the page"		
+                return "Sorry you uploaded wrong image!!"
+    else:
+        return "Something went wrong please refresh the page"
 
 
 if __name__ == '__main__':
