@@ -47,13 +47,13 @@ def Heart():
         connect=5
 
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have heart disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have heart disease 🥳".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a heart disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a heart disease 😥".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition 🙂"
             val="black"
     return render_template('Heart.html',prediction = result, color=val, connect=connect)
 
