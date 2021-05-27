@@ -96,13 +96,13 @@ def Kidney():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have kidney disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have kidney disease 🥳".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a kidney disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a kidney disease 😥".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition 🙂"
             val="black"
     return render_template('Kidney.html',prediction = result,color=val,connect=connect)
 
@@ -129,13 +129,13 @@ def diabetes():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have diabetes disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have diabetes disease 🥳".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a diabetes disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a diabetes disease 😥".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition 🙂"
             val="black"
     return render_template('diabetes.html',prediction = result,connect=connect,color=val)
 
@@ -163,13 +163,13 @@ def liver():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have liver disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have liver disease 🥳".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a liver disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a liver disease 😥".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition 🙂"
             val="black"
     return render_template('liver.html',prediction = result,connect=connect,color=val)
 
@@ -210,13 +210,13 @@ def parkirson():
         my_prediction = classifier.predict_proba(inputFeature)
         connect=5
         if my_prediction[0][0] > 0.5:
-            result="congrats our model says he is {}% sure you dont have parkirson disease".format(int(my_prediction[0][0]*100))
+            result="congrats our model says he is {}% sure you dont have parkirson disease 🥳".format(int(my_prediction[0][0]*100))
             val="green"
         elif my_prediction[0][1]>0.5:
-            result="sorry to say but our model says there is {} % chance you have a parkirson disease".format(int(my_prediction[0][1]*100))
+            result="sorry to say but our model says there is {} % chance you have a parkirson disease 😥".format(int(my_prediction[0][1]*100))
             val="red"
         else:
-            result="sorry to say our model is not sure about you,its 50-50 condition"
+            result="sorry to say our model is not sure about you,its 50-50 condition 🙂"
             val="black"
     return render_template('parkirson.html',prediction = result,connect=connect, color=val)
 
@@ -261,13 +261,13 @@ def COVID():
                 if os.path.exists(file_path):
                     os.remove(file_path)
                 if result2 == 0:
-                    return "Sorry to say you have tested COVID-19 Positive"
+                    return "Sorry to say you have tested COVID-19 Positive 😥"
                 else:
-                    return "Hurray you have tested COVID-19 Negative"
+                    return "Hurray you have tested COVID-19 Negative 🥳"
             else:
-                return "Sorry you uploaded wrong image!!"
+                return "Sorry you uploaded wrong image!! 😐"
     else:
-        return "Something went wrong please refresh the page"
+        return "Something went wrong please refresh the page 🙂"
 
 @app.route('/pneumonia_')
 def pneumonia_():
@@ -310,13 +310,13 @@ def pneumonia():
                 if os.path.exists(file_path):
                     os.remove(file_path)
                 if result2 == 1:
-                    return "Sorry to say you have Pneumonia"
+                    return "Sorry to say you have Pneumonia 😥"
                 else:
-                    return "Congratulations you dont have pneumonia"
+                    return "Congratulations you dont have pneumonia 🥳"
             else:
-                return "Sorry you uploaded wrong image!!"
+                return "Sorry you uploaded wrong image!! 😐"
     else:
-        return "Something went wrong please refresh the page"
+        return "Something went wrong please refresh the page 🙂"
 @app.route('/lung_')
 def lung_():
     return render_template('lung.html')
@@ -358,13 +358,13 @@ def lung():
                 if os.path.exists(file_path):
                     os.remove(file_path)
                 if result2 == 2:
-                    return " Congratulations You are Normal"
+                    return " Congratulations You are Normal 🥳"
                 else:
-                    return "sorry to say our model says you have maligant level of caner "
+                    return "sorry to say our model says you have maligant level of caner 😥"
             else:
-                return "Sorry you uploaded wrong image!!"
+                return "Sorry you uploaded wrong image!! 😐"
     else:
-        return "Something went wrong please refresh the page"
+        return "Something went wrong please refresh the page 🙂"
     
 @app.route('/maleria_')
 def maleria_():
@@ -405,13 +405,13 @@ def maleria():
                 if os.path.exists(file_path):
                     os.remove(file_path)
                 if result2 == 1:
-                    return " Congratulations You dont have Malaria"
+                    return " Congratulations You dont have Malaria 🥳"
                 else:
-                    return "sorry to say our model is says you have Malaria "
+                    return "sorry to say our model is says you have Malaria 😥"
             else:
-                return "Sorry you uploaded wrong image!!"
+                return "Sorry you uploaded wrong image!! 😐"
     else:
-        return "Something went wrong please refresh the page"
+        return "Something went wrong please refresh the page 🙂"
 
 
 if __name__ == '__main__':
